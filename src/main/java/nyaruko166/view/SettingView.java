@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
  * @author ADMIN
  */
 public class SettingView extends javax.swing.JFrame {
@@ -29,13 +28,11 @@ public class SettingView extends javax.swing.JFrame {
      */
     public SettingView() {
         initComponents();
-//        this.setIconImage(new ImageIcon("src/main/resources/ico/nya.png").getImage());
         CenteredFrame(this);
         readConfig();
 
     }
 
-    private String steamDir = "";
     private String crackGameDir = "";
     private String steamGameDir = "";
 
@@ -58,10 +55,7 @@ public class SettingView extends javax.swing.JFrame {
     }
 
     public Boolean validateDir() {
-        if (steamDir == null || steamDir.isBlank()) {
-            JOptionPane.showMessageDialog(this, "Vcl m deo thêm path thì t chuyển save kiểu buoi gì?", "Path steam.exe đâu?", JOptionPane.ERROR_MESSAGE);
-            return false;
-        } else if (crackGameDir == null || crackGameDir.isBlank()) {
+        if (crackGameDir == null || crackGameDir.isBlank()) {
             JOptionPane.showMessageDialog(this, "Vcl m deo thêm path thì t chuyển save kiểu buoi gì?", "Path game crack đâu?", JOptionPane.ERROR_MESSAGE);
             return false;
         } else if (steamGameDir == null || steamGameDir.isBlank()) {
@@ -85,10 +79,8 @@ public class SettingView extends javax.swing.JFrame {
                 FileReader fr = new FileReader("config.txt");
                 BufferedReader br = new BufferedReader(fr);
 
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 2; i++) {
                     if (i == 0) {
-                        steamDir = br.readLine();
-                    } else if (i == 1) {
                         crackGameDir = br.readLine();
                     } else {
                         steamGameDir = br.readLine();
@@ -115,28 +107,18 @@ public class SettingView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblSteam = new javax.swing.JLabel();
-        btnSteam = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         btnCrack = new javax.swing.JButton();
         lblCrack = new javax.swing.JLabel();
-        lblSteam1 = new javax.swing.JLabel();
-        btnSteamDir = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
+        btnSteam = new javax.swing.JButton();
+        lblSteam = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Setting Nè");
+        setBackground(java.awt.SystemColor.control);
 
-        lblSteam.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        lblSteam.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSteam.setText("Steam");
-        lblSteam.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        btnSteam.setText("Browse");
-        btnSteam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSteamActionPerformed(evt);
-            }
-        });
+        jPanel1.setForeground(java.awt.SystemColor.control);
 
         btnCrack.setText("Browse");
         btnCrack.addActionListener(new java.awt.event.ActionListener() {
@@ -150,18 +132,6 @@ public class SettingView extends javax.swing.JFrame {
         lblCrack.setText("Crack");
         lblCrack.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lblSteam1.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        lblSteam1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSteam1.setText("Chọn steam.exe");
-        lblSteam1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        btnSteamDir.setText("Browse");
-        btnSteamDir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSteamDirActionPerformed(evt);
-            }
-        });
-
         btnSave.setText("Save Config");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,45 +139,66 @@ public class SettingView extends javax.swing.JFrame {
             }
         });
 
+        btnSteam.setText("Browse");
+        btnSteam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSteamActionPerformed(evt);
+            }
+        });
+
+        lblSteam.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        lblSteam.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSteam.setText("Steam");
+        lblSteam.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblCrack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCrack))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblSteam, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSteam)))
+                .addGap(18, 18, 18)
+                .addComponent(btnSave)
+                .addGap(15, 15, 15))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSteam, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSteam, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCrack, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCrack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(15, 15, 15))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCrack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCrack)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSteam, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSteam)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSteam1)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSteamDir)))
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSteam1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblSteam, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSteamDir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSteam, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCrack, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -221,27 +212,11 @@ public class SettingView extends javax.swing.JFrame {
         crackGameDir = folderChooser();
     }//GEN-LAST:event_btnCrackActionPerformed
 
-    private void btnSteamDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSteamDirActionPerformed
-        JFileChooser chooser = new JFileChooser();
-        chooser.setFileFilter(new FileNameExtensionFilter("File có đuôi là .exe", "exe"));
-        chooser.setDialogTitle("Chọn file steam.exe");
-        chooser.setCurrentDirectory(new java.io.File("C:\\Program Files (x86)"));
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            if (chooser.getSelectedFile().getName().contains("steam")) {
-                steamDir = chooser.getSelectedFile().getPath();
-            } else {
-                JOptionPane.showMessageDialog(this, "Vcl đã bảo chọn steam.exe mà?", "Ew khong biet doc?", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_btnSteamDirActionPerformed
-
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         if (validateDir()) {
             try {
                 FileWriter fw = new FileWriter("config.txt");
                 BufferedWriter bw = new BufferedWriter(fw);
-                bw.write(steamDir);
-                bw.newLine();
                 bw.write(crackGameDir);
                 bw.newLine();
                 bw.write(steamGameDir);
@@ -264,7 +239,7 @@ public class SettingView extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -297,9 +272,8 @@ public class SettingView extends javax.swing.JFrame {
     private javax.swing.JButton btnCrack;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSteam;
-    private javax.swing.JButton btnSteamDir;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCrack;
     private javax.swing.JLabel lblSteam;
-    private javax.swing.JLabel lblSteam1;
     // End of variables declaration//GEN-END:variables
 }
