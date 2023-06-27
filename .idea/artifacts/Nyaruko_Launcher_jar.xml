@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Nyaruko_Launcher:jar">
+    <output-path>$PROJECT_DIR$/../EXE/NyarukoLauncher</output-path>
+    <root id="archive" name="Nyaruko_Launcher.jar">
+      <element id="module-output" name="Nyaruko_Launcher" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-io/commons-io/2.13.0/commons-io-2.13.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
